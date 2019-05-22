@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
+  # devise_for :users, controllers: { sign_in: 'users'}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users
 
@@ -10,5 +11,6 @@ Rails.application.routes.draw do
 
   get '/sign_in' => 'registrations#new', as: :registrations
   post '/sign_in' => 'registrations#create', as: :sign_in
+
 
 end
